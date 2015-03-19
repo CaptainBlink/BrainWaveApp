@@ -31,7 +31,7 @@ public class MainActivity extends Activity{
 * Store the location of images inside the array
 */
         drawables = new Drawable[] {
-                getResources().getDrawable(R.mipmap.Untitled),
+                getResources().getDrawable(R.mipmap.untitled),
 
         };
 
