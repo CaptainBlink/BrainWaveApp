@@ -25,7 +25,7 @@ public class MainActivity extends Activity{
 
 
         appImageView = (ImageView) findViewById(R.id.imageView);
-        appButton =(Button) findViewById(R.id.imageButton1);
+        appButton = (Button) findViewById(R.id.imageButton);
 
  /*
 * Store the location of images inside the array
