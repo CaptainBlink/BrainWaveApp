@@ -1,7 +1,6 @@
 package com.groupx.brainwaveapp;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +23,7 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
 
 
-        appImageView = (ImageView) findViewById(R.id.imageView);
+        appImageView = (ImageView) findViewById(R.id.imageView1);
         appButton = (Button) findViewById(R.id.imageButton);
 
  /*
