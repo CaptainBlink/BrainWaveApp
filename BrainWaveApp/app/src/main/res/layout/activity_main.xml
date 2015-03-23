@@ -37,11 +37,17 @@
             android:layout_alignParentEnd="true"
             android:baselineAlignBottom="false" />
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></LinearLayout>
+
         <Chronometer
-            android:layout_width="242dp"
-            android:layout_height="125dp"
-            android:id="@+id/chronometer"
-            android:layout_gravity="left|top" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format="01:00"
+            android:id="@+id/chronometer" />
+
 
     </FrameLayout>
 
