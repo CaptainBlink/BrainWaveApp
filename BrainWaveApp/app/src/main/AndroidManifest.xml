@@ -17,11 +17,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:theme="@style/AppTheme"
             android:name=".Game"
-            android:label="@string/title_activity_game" >
+            android:label="@string/title_activity_game"
+            android:theme="@style/AppTheme" >
         </activity>
-
+        <activity
+            android:name=".pause_menu"
+            android:label="@string/title_activity_pause_menu" >
+        </activity>
     </application>
 
 </manifest>

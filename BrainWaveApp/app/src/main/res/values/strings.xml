@@ -7,6 +7,7 @@
     <string name="title_activity_main_menu">BrainWaveApp</string>
     <string name="title_activity_game">game</string>
     <string name="title_activity_pause">pause</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_pause_menu">pause_menu</string>
+    <string name="menu_continue">Continue</string>
+    <string name="main_menu">Main Menu</string>
 </resources>
