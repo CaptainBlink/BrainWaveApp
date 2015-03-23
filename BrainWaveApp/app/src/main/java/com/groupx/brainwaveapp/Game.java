@@ -1,5 +1,6 @@
 package com.groupx.brainwaveapp;
 
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -10,29 +11,71 @@ import android.widget.Chronometer;
 import android.widget.Button;
 import android.view.View;
 import android.os.SystemClock;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 import org.apache.http.impl.client.RedirectLocations;
 
 
 public class Game extends ActionBarActivity {
     View pauseButton;
+    View PauseMenu;
     RelativeLayout Rel_main_game;
     Chronometer chrono;
     Button btnStart;
     Button btnStop;
     Button btnReset;
     TextView txt;
+    TextView txt1;
+    TextView txt2;
     long elapsedTime=0;
     String currentTime="";
     long startTime=SystemClock.elapsedRealtime();
     Boolean resume=false;
 
+    //Pause Menu and button
+
+    OnClickListener Continue_List = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            PauseMenu.setVisibility(View.GONE);
+            pauseButton.setVisibility(View.VISIBLE);
+
+        }
+    };
+
+    OnClickListener To_Main_Menu = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Game.this.finish();
+
+        }
+    };
+
+    OnClickListener Pause_click = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            pauseButton.setVisibility(View.GONE);
+            PauseMenu.setVisibility(View.VISIBLE);
+
+            // Pause Start
+
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
+
+
+
         Rel_main_game = (RelativeLayout) findViewById(R.id.main_game_id);
 
         DisplayMetrics dm = new DisplayMetrics();
@@ -46,15 +89,32 @@ public class Game extends ActionBarActivity {
         pauseButton.setX(widthS - 250);
         pauseButton.setY(0);
         Rel_main_game.addView(pauseButton);
+        pauseButton.setOnClickListener(Pause_click);
+        pauseButton.getLayoutParams().height = 200;
+        pauseButton.getLayoutParams().width = 200;
 
-        pauseButton.getLayoutParams().height = 250;
-        pauseButton.getLayoutParams().width = 250;
+        PauseMenu = myInflater.inflate(R.layout.pause_menu, null, false);
+        Rel_main_game.addView(PauseMenu);
+        PauseMenu.setVisibility(View.GONE);
+
+        ImageView Cont = (ImageView)PauseMenu.findViewById(R.id.img_cont);
+        ImageView MainMenuTo = (ImageView)PauseMenu.findViewById(R.id.toMain);
+        Cont.setOnClickListener(Continue_List);
+        MainMenuTo.setOnClickListener(To_Main_Menu);
 
         chrono=(Chronometer)findViewById(R.id.chrono);
         btnStart=(Button)findViewById(R.id.btnStart);
         btnStop=(Button)findViewById(R.id.btnStop);
         btnReset=(Button)findViewById(R.id.btnReset);
         txt=(TextView)findViewById(R.id.txt);
+
+
+        txt1 = (TextView) findViewById(R.id.continue_g);
+        txt2 = (TextView) findViewById(R.id.go_mainmenu);
+
+        Typeface Custom = Typeface.createFromAsset(getAssets(), "orange juice 2.0.ttf");
+        txt1.setTypeface(Custom);
+        txt2.setTypeface(Custom);
 
     }
     public void onClick(View v) {

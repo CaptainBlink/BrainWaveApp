@@ -17,34 +17,50 @@ import android.view.View.OnTouchListener;
  */
 public class MainMenu extends Activity {
 
-    RelativeLayout Btn;
-    ImageView ImageButton;
-    TextView txt;
+    RelativeLayout Btn1;
+    RelativeLayout Btn2;
+    ImageView ImageButton1;
+    ImageView ImageButton2;
+    TextView txt1;
+    TextView txt2;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
 
-        Btn = (RelativeLayout) findViewById(R.id.btn_start);
-        ImageButton = (ImageView) findViewById(R.id.img_btn1);
-        txt = (TextView) findViewById(R.id.text_start);
+        Btn1 = (RelativeLayout) findViewById(R.id.btn_start);
+        Btn2 = (RelativeLayout) findViewById(R.id.btn_quit);
+        ImageButton1 = (ImageView) findViewById(R.id.img_btn1);
+        ImageButton2 = (ImageView) findViewById(R.id.img_btn2);
+        txt1 = (TextView) findViewById(R.id.text_start);
+        txt2 = (TextView) findViewById(R.id.text_quit);
 
         Typeface Custom = Typeface.createFromAsset(getAssets(), "orange juice 2.0.ttf");
-        txt.setTypeface(Custom);
+        txt1.setTypeface(Custom);
+        txt2.setTypeface(Custom);
 
-        Btn.setOnTouchListener(new OnTouchListener() {
+        Btn1.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return false;
             }
         });
 
-        Btn.setOnClickListener(new OnClickListener() {
+        Btn1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent myIntent = new Intent(MainMenu.this, Game.class);
                 startActivity(myIntent);
+
+            }
+        });
+
+        Btn2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MainMenu.this.finish();
 
             }
         });

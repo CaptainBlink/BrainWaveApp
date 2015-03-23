@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.groupx.brainwaveapp.pause_menu"
-    android:background="@mipmap/mainbackground">
+    android:id="@+id/Rel">
 
     <RelativeLayout
         android:layout_width="450px"
@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/imageView4"
+            android:id="@+id/img_cont"
             android:src="@mipmap/button1"
             android:scaleType="centerCrop" />
 
@@ -27,21 +27,22 @@
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/menu_continue"
-            android:id="@+id/textView"
-            android:gravity="center" />
+            android:id="@+id/continue_g"
+            android:gravity="center"
+            android:textColor="#ff4aff0f" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="450px"
         android:layout_height="150px"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="56dp"
         android:layout_below="@+id/relativeLayout"
-        android:layout_centerHorizontal="true">
+        android:layout_alignStart="@+id/relativeLayout">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/imageView5"
+            android:id="@+id/toMain"
             android:scaleType="centerCrop"
             android:src="@mipmap/button1" />
 
@@ -50,7 +51,8 @@
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/main_menu"
-            android:id="@+id/textView2"
-            android:gravity="center" />
+            android:id="@+id/go_mainmenu"
+            android:gravity="center"
+            android:textColor="#ff4aff0f" />
     </RelativeLayout>
 </RelativeLayout>
