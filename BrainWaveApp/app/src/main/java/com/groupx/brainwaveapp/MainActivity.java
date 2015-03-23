@@ -5,91 +5,70 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Chronometer;
-import android.widget.LinearLayout;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
 import android.os.SystemClock;
 import android.widget.Toast;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
-    private Chronometer mChronometer;
+    Chronometer chrono;
+    Button btnStart;
+    Button btnStop;
+    Button btnReset;
+    TextView txt;
+    long elapsedTime=0;
+    String currentTime="";
+    long startTime=SystemClock.elapsedRealtime();
+    Boolean resume=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-
-        mChronometer = new Chronometer(this);
-
-        // Set the initial value
-        mChronometer.setText("01:10");
-        layout.addView(mChronometer);
-
-        Button startButton = new Button(this);
-        startButton.setText("Start");
-        startButton.setOnClickListener(mStartListener);
-        layout.addView(startButton);
-
-        Button stopButton = new Button(this);
-        stopButton.setText("Stop");
-        stopButton.setOnClickListener(mStopListener);
-        layout.addView(stopButton);
-
-        Button resetButton = new Button(this);
-        resetButton.setText("Reset");
-        resetButton.setOnClickListener(mResetListener);
-        layout.addView(resetButton);
-
-
         setContentView(R.layout.activity_main);
-
+        chrono=(Chronometer)findViewById(R.id.chrono);
+        btnStart=(Button)findViewById(R.id.btnStart);
+        btnStop=(Button)findViewById(R.id.btnStop);
+        btnReset=(Button)findViewById(R.id.btnReset);
+        txt=(TextView)findViewById(R.id.txt);
 
     }
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.btnStart:
+                btnStart.setEnabled(false);
+                btnStop.setEnabled(true);
+                if (!resume)
+                {
+                    chrono.setBase(SystemClock.elapsedRealtime());
+                    chrono.start();
+                }
+                else
+                {
+                    chrono.start();
+                }
 
-    private void showElapsedTime() {
-        long elapsedMillis = SystemClock.elapsedRealtime() - mChronometer.getBase();
-        Toast.makeText(MainActivity.this, "Elapsed milliseconds: " + elapsedMillis,
-                Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnStop:
+                btnStart.setEnabled(true);
+                btnStop.setEnabled(false);
+                chrono.stop();
+                chrono.setText(currentTime);
+                resume=true;
+                btnStart.setText("Resume");
+                break;
+            case R.id.btnReset:
+                chrono.stop();
+                chrono.setText("00:00");
+                resume=false;
+                btnStop.setEnabled(false);
+                break;
+        }
     }
 
-    View.OnClickListener mStartListener = new OnClickListener() {
-        public void onClick(View v) {
-            int stoppedMilliseconds = 0;
-
-            String chronoText = mChronometer.getText().toString();
-            String array[] = chronoText.split(":");
-            if (array.length == 2) {
-                stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 1000
-                        + Integer.parseInt(array[1]) * 1000;
-            } else if (array.length == 3) {
-                stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000
-                        + Integer.parseInt(array[1]) * 60 * 1000
-                        + Integer.parseInt(array[2]) * 1000;
-            }
-
-            mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
-            mChronometer.start();
-        }
-    };
-
-    View.OnClickListener mStopListener = new OnClickListener() {
-        public void onClick(View v) {
-            mChronometer.stop();
-            showElapsedTime();
-        }
-    };
-
-    View.OnClickListener mResetListener = new OnClickListener() {
-        public void onClick(View v) {
-            mChronometer.setBase(SystemClock.elapsedRealtime());
-            showElapsedTime();
-        }
-    };
 
 
     @Override

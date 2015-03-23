@@ -40,13 +40,43 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"></LinearLayout>
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:weightSum="1">
 
-        <Chronometer
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:format="01:00"
-            android:id="@+id/chronometer" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="New Text"
+                android:id="@+id/txt" />
+
+            <Chronometer
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/chrono"
+                android:layout_weight="0.04" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start"
+                android:onClick="onClick"
+                android:id="@+id/btnStart" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stop"
+                android:onClick="onClick"
+                android:id="@+id/btnStop" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="Reset"
+                android:id="@+id/btnReset" />
+        </LinearLayout>
 
 
     </FrameLayout>
