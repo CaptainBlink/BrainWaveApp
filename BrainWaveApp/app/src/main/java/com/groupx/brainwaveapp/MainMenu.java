@@ -3,6 +3,7 @@ package com.groupx.brainwaveapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,10 +24,14 @@ public class MainMenu extends Activity {
     ImageView ImageButton2;
     TextView txt1;
     TextView txt2;
+    MediaPlayer menuSound;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
+
+        menuSound = MediaPlayer.create(MainMenu.this, R.raw.menu_sound);
+        menuSound.start();
 
         Btn1 = (RelativeLayout) findViewById(R.id.btn_start);
         Btn2 = (RelativeLayout) findViewById(R.id.btn_quit);
@@ -50,6 +55,7 @@ public class MainMenu extends Activity {
             @Override
             public void onClick(View v) {
 
+                menuSound.stop();
                 Intent myIntent = new Intent(MainMenu.this, Game.class);
                 startActivity(myIntent);
 
@@ -60,7 +66,12 @@ public class MainMenu extends Activity {
             @Override
             public void onClick(View v) {
 
-                MainMenu.this.finish();
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                System.exit(0);
 
             }
         });

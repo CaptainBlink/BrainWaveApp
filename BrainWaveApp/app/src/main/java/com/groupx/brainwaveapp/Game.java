@@ -75,7 +75,6 @@ public class Game extends ActionBarActivity {
         setContentView(R.layout.game);
 
 
-
         Rel_main_game = (RelativeLayout) findViewById(R.id.main_game_id);
 
         DisplayMetrics dm = new DisplayMetrics();
