@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/mainbackground">
+
+    <RelativeLayout
+        android:layout_width="450px"
+        android:layout_height="150px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="199dp"
+        android:id="@+id/btn_start">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/img_btn1"
+            android:src="@mipmap/button1"
+            android:maxWidth="350px"
+            android:minHeight="150px"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/start_game"
+            android:id="@+id/text_start"
+            android:gravity="center"
+            android:textColor="#ff4aff0f" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="450px"
+        android:layout_height="150px"
+        android:layout_below="@+id/btn_start"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:id="@+id/btn_quit">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/img_btn2"
+            android:src="@mipmap/button1"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/end_game"
+            android:id="@+id/text_quit"
+            android:textColor="#ff4aff0f"
+            android:gravity="center" />
+    </RelativeLayout>
+
+</RelativeLayout>
