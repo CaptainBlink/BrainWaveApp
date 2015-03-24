@@ -33,7 +33,7 @@
             android:layout_height="130dp"
             android:id="@+id/imageView"
             android:background="@mipmap/block"
-            android:layout_gravity="right|bottom"
+            android:layout_gravity="end|bottom"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:baselineAlignBottom="false" />

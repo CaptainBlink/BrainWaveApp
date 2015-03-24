@@ -17,8 +17,8 @@
             android:layout_height="fill_parent"
             android:id="@+id/img_btn1"
             android:src="@mipmap/button1"
-            android:maxWidth="350px"
-            android:minHeight="150px"
+            android:maxWidth="350dp"
+            android:minHeight="150dp"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -26,8 +26,9 @@
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/start_game"
-            android:id="@+id/text_start"
+            android:id="@+id/btnStart"
             android:gravity="center"
+            android:onClick="OnClick"
             android:textColor="#ff4aff0f" />
     </RelativeLayout>
 
