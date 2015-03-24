@@ -16,8 +16,9 @@
         android:gravity="center_vertical"
         android:id="@+id/relativeLayout"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="101dp"
         android:layout_alignStart="@+id/relativeLayout2"
-        android:layout_marginTop="101dp">
+        android:clickable="false">
 
 
         <ImageView

@@ -32,6 +32,8 @@ public class Game extends ActionBarActivity {
     String currentTime="";
     long startTime=SystemClock.elapsedRealtime();
     Boolean resume=false;
+    GamePanel game_panel;
+
 
     //Pause Menu and button
 
@@ -41,6 +43,7 @@ public class Game extends ActionBarActivity {
 
             PauseMenu.setVisibility(View.GONE);
             pauseButton.setVisibility(View.VISIBLE);
+            game_panel.Pause_game = false;
 
         }
     };
@@ -60,6 +63,7 @@ public class Game extends ActionBarActivity {
 
             pauseButton.setVisibility(View.GONE);
             PauseMenu.setVisibility(View.VISIBLE);
+            game_panel.Pause_game = true;
 
             // Pause Start
 
@@ -71,16 +75,15 @@ public class Game extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
-
-
-
         Rel_main_game = (RelativeLayout) findViewById(R.id.main_game_id);
-
         DisplayMetrics dm = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         final int heightS = dm.heightPixels;
         final int widthS = dm.widthPixels;
+
+        game_panel = new GamePanel(getApplicationContext(), this, widthS);
+        Rel_main_game.addView(game_panel);
 
         LayoutInflater myInflater = (LayoutInflater) getApplicationContext().getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
         pauseButton = myInflater.inflate(R.layout.pause, null, false);

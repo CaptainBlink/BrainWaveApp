@@ -7,10 +7,11 @@
     <RelativeLayout
         android:layout_width="450px"
         android:layout_height="150px"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="199dp"
-        android:id="@+id/btn_start">
+        android:id="@+id/btn_start"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/btn_quit"
+        android:layout_alignStart="@+id/btn_quit">
 
         <ImageView
             android:layout_width="fill_parent"
