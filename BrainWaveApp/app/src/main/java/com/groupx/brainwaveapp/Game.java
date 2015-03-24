@@ -28,6 +28,8 @@ public class Game extends ActionBarActivity {
     Button btnStop;
     Button btnReset;
     TextView txt;
+    TextView txt1;
+    TextView txt2;
     long elapsedTime=0;
     String currentTime="";
     long startTime=SystemClock.elapsedRealtime();
@@ -73,7 +75,6 @@ public class Game extends ActionBarActivity {
         setContentView(R.layout.game);
 
 
-
         Rel_main_game = (RelativeLayout) findViewById(R.id.main_game_id);
 
         DisplayMetrics dm = new DisplayMetrics();
@@ -107,6 +108,12 @@ public class Game extends ActionBarActivity {
         txt=(TextView)findViewById(R.id.txt);
 
 
+        txt1 = (TextView) findViewById(R.id.continue_g);
+        txt2 = (TextView) findViewById(R.id.go_mainmenu);
+
+        Typeface Custom = Typeface.createFromAsset(getAssets(), "orange juice 2.0.ttf");
+        txt1.setTypeface(Custom);
+        txt2.setTypeface(Custom);
 
     }
     public void onClick(View v) {
