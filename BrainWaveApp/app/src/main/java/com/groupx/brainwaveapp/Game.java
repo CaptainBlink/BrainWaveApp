@@ -116,7 +116,39 @@ public class Game extends ActionBarActivity {
         txt2.setTypeface(Custom);
 
     }
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.btnStart:
+                btnStart.setEnabled(false);
+                btnStop.setEnabled(true);
+                if (!resume)
+                {
+                    chrono.setBase(SystemClock.elapsedRealtime());
+                    chrono.start();
+                }
+                else
+                {
+                    chrono.start();
+                }
 
+                break;
+            case R.id.btnStop:
+                btnStart.setEnabled(true);
+                btnStop.setEnabled(false);
+                chrono.stop();
+                chrono.setText(currentTime);
+                resume=true;
+                btnStart.setText("Resume");
+                break;
+            case R.id.btnReset:
+                chrono.stop();
+                chrono.setText("00:00");
+                resume=false;
+                btnStop.setEnabled(false);
+                break;
+        }
+    }
 
 
 

@@ -1,10 +1,10 @@
 package com.groupx.brainwaveapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +16,7 @@ import android.view.View.OnTouchListener;
 /**
  * Created by CaptainFlint on 23-Mar-15.
  */
-public class MainMenu extends Game {
+public class MainMenu extends Activity {
 
     RelativeLayout Btn1;
     RelativeLayout Btn2;
@@ -37,7 +37,7 @@ public class MainMenu extends Game {
         Btn2 = (RelativeLayout) findViewById(R.id.btn_quit);
         ImageButton1 = (ImageView) findViewById(R.id.img_btn1);
         ImageButton2 = (ImageView) findViewById(R.id.img_btn2);
-        txt1 = (TextView) findViewById(R.id.btnStart);
+        txt1 = (TextView) findViewById(R.id.text_start);
         txt2 = (TextView) findViewById(R.id.text_quit);
 
         Typeface Custom = Typeface.createFromAsset(getAssets(), "orange juice 2.0.ttf");
@@ -78,37 +78,4 @@ public class MainMenu extends Game {
 
 
     }
-    public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.btnStart:
-                btnStart.setEnabled(false);
-                btnStop.setEnabled(true);
-                if (!resume)
-                {
-                    chrono.setBase(SystemClock.elapsedRealtime());
-                    chrono.start();
-                }
-                else
-                {
-                    chrono.start();
-                }
-
-                break;
-            case R.id.btnStop:
-                btnStart.setEnabled(true);
-                btnStop.setEnabled(false);
-                chrono.stop();
-                chrono.setText(currentTime);
-                resume=true;
-                btnStart.setText("Resume");
-                break;
-            case R.id.btnReset:
-                chrono.stop();
-                chrono.setText("00:00");
-                resume=false;
-                btnStop.setEnabled(false);
-                break;
-        }
-    } ///should start chronometer
 }
