@@ -85,12 +85,12 @@ public class Game extends ActionBarActivity {
 
         LayoutInflater myInflater = (LayoutInflater) getApplicationContext().getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
         pauseButton = myInflater.inflate(R.layout.pause, null, false);
-        pauseButton.setX(widthS - 250);
+        pauseButton.setX(widthS - 150);
         pauseButton.setY(0);
         Rel_main_game.addView(pauseButton);
         pauseButton.setOnClickListener(Pause_click);
-        pauseButton.getLayoutParams().height = 200;
-        pauseButton.getLayoutParams().width = 200;
+        pauseButton.getLayoutParams().height = 100;
+        pauseButton.getLayoutParams().width = 100;
 
         PauseMenu = myInflater.inflate(R.layout.pause_menu, null, false);
         Rel_main_game.addView(PauseMenu);

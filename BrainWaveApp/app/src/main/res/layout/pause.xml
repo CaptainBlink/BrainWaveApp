@@ -1,15 +1,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.groupx.brainwaveapp.pause">
+    android:id="@+id/Rel"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
         android:id="@+id/img_btn_pause"
         android:src="@mipmap/pausebutton"
-        android:scaleType="centerCrop" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
 </RelativeLayout>
