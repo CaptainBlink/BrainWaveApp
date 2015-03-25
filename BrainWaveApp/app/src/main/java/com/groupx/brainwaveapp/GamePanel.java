@@ -16,20 +16,30 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     public MainThread thread;
     public boolean Pause_game;
     private Background background;
+    private Hero hero;
     public float CharacterSpeed;
 
-    public GamePanel(Context context, Game game, int ScreeWidth) {
+    public GamePanel(Context context, Game game, int ScreeWidth, int Screenheight) {
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
-        background = new Background(BitmapFactory.decodeResource(getResources(), R.mipmap.backgroundnight), ScreeWidth , this);
+        background = new Background(BitmapFactory.decodeResource(getResources(), R.mipmap.gamebackground), ScreeWidth , this);
+        hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.character), 100, 0, ScreeWidth, Screenheight);
         setFocusable(true);
         CharacterSpeed = ScreeWidth/2.f;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+
+        if (event.getAction()==MotionEvent.ACTION_DOWN){
+            hero.up = true;
+        }
+        if (event.getAction()==MotionEvent.ACTION_UP){
+            hero.up = false;
+        }
+
+        return true;
     }
 
     void Draw(Canvas canvas){
@@ -38,12 +48,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             if (canvas!=null) {
 
                 background.draw(canvas);
+                hero.draw(canvas);
             }
     }
 
     void Update(float dt){
 
         background.update(dt);
+        hero.update(dt);
     }
 
     @Override
