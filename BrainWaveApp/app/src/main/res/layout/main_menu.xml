@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="450px"
         android:layout_height="150px"
-        android:layout_marginTop="199dp"
+        android:layout_marginTop="126dp"
         android:id="@+id/btn_start"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/btn_quit"

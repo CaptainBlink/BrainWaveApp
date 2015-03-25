@@ -9,7 +9,7 @@
         <activity
             android:name=".MainMenu"
             android:label="@string/title_activity_main_menu"
-            android:screenOrientation="sensorPortrait">
+            android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

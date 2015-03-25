@@ -31,7 +31,7 @@ public class MainMenu extends Activity {
         setContentView(R.layout.main_menu);
 
         menuSound = MediaPlayer.create(MainMenu.this, R.raw.menu_sound);
-        //menuSound.start();
+        menuSound.start();
 
         Btn1 = (RelativeLayout) findViewById(R.id.btn_start);
         Btn2 = (RelativeLayout) findViewById(R.id.btn_quit);
