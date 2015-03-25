@@ -23,8 +23,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
-        background = new Background(BitmapFactory.decodeResource(getResources(), R.mipmap.gamebackground), ScreeWidth , this);
-        hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.character), 100, 0, ScreeWidth, Screenheight);
+        background = new Background(BitmapFactory.decodeResource(getResources(), R.mipmap.game_fon), ScreeWidth , this);
+        hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.ship), 100, 0, ScreeWidth, Screenheight);
         setFocusable(true);
         CharacterSpeed = ScreeWidth/2.f;
     }
