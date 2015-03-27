@@ -11,10 +11,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
+
 /**
  * Created by CaptainFlint on 25-Mar-15.
  */
 public class Game extends Activity {
+
     View pauseButton;
     View PauseMenu;
     RelativeLayout Rel_main_game;
@@ -65,6 +68,7 @@ public class Game extends Activity {
         final int heightS = dm.heightPixels;
         final int widthS = dm.widthPixels;
 
+
         game_panel = new GamePanel(getApplicationContext(), this, widthS, heightS);
         Rel_main_game.addView(game_panel);
 
@@ -87,6 +91,8 @@ public class Game extends Activity {
         MainMenuTo.setOnClickListener(To_Main_Menu);
         txt=(TextView)findViewById(R.id.txt);
     }
+
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
