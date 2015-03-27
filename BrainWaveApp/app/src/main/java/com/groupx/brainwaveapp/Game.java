@@ -22,7 +22,7 @@ public class Game extends Activity {
     View PauseMenu;
     RelativeLayout Rel_main_game;
     TextView txt;
-    Boolean resume=false;
+    Boolean resume = false;
     GamePanel game_panel;
 
     View.OnClickListener Continue_List = new View.OnClickListener() {
