@@ -91,7 +91,7 @@ public class Barrier
             {
                 y = BM.dpos + BM.dl / 2 + bitmap.getHeight() / 2;
             }
-            x = (int) (x + bitmap.getWidth() * (BM.TopWalls.size() - 1));
+         //  x = (int) (x + bitmap.getWidth() * (BM.TopWalls.size() - 1));
         }
         x = (int) (x - BM.game_panel.CharacterSpeed * dt);
     }
