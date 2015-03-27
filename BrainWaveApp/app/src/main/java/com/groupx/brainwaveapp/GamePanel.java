@@ -26,7 +26,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         thread = new MainThread(getHolder(), this);
 
         background = new Background(BitmapFactory.decodeResource(getResources(), R.mipmap.gamebackground), ScreeWidth , this);
-        BM = new Barriermanager(BitmapFactory.decodeResource(getResources(), R.mipmap.block));
+        BM = new Barriermanager(BitmapFactory.decodeResource(getResources(), R.mipmap.block),this);
 
         hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.character), 100, 0, ScreeWidth, Screenheight);
         setFocusable(true);

@@ -27,7 +27,7 @@ public class Barriermanager {
         this.game_panel = game_panel;
     }
 
-    void setShipH(int h) {
+    void setCharacterH(int h) {
         shipHeight = h;
     }
 
