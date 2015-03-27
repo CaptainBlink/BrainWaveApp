@@ -43,6 +43,4 @@ public void update(float dt){
     x = (int) (x - root_gamepanel.CharacterSpeed*dt);
 }
 
-
-
 }
