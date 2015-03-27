@@ -1,15 +1,26 @@
 package com.groupx.brainwaveapp;
 
+import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
+import com.neurosky.thinkgear.*;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.neurosky.thinkgear.TGDevice;
+import com.neurosky.thinkgear.TGEegPower;
+import com.neurosky.thinkgear.TGRawMulti;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 
 
 
@@ -24,6 +35,10 @@ public class Game extends Activity {
     TextView txt;
     Boolean resume = false;
     GamePanel game_panel;
+    TGDevice tgDevice;
+    BluetoothAdapter btAdapter;
+    TextView data;
+    TextView dataAttention;
 
     View.OnClickListener Continue_List = new View.OnClickListener() {
         @Override
@@ -69,6 +84,12 @@ public class Game extends Activity {
         final int widthS = dm.widthPixels;
 
 
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (btAdapter != null) {
+            tgDevice = new TGDevice(btAdapter, handler);
+        }
+
+
         game_panel = new GamePanel(getApplicationContext(), this, widthS, heightS);
         Rel_main_game.addView(game_panel);
 
@@ -89,9 +110,47 @@ public class Game extends Activity {
         ImageView MainMenuTo = (ImageView) PauseMenu.findViewById(R.id.toMain);
         Cont.setOnClickListener(Continue_List);
         MainMenuTo.setOnClickListener(To_Main_Menu);
-        txt=(TextView)findViewById(R.id.txt);
+        txt = (TextView) findViewById(R.id.txt);
     }
 
+    private final Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case TGDevice.MSG_STATE_CHANGE:
+                    switch (msg.arg1) {
+                        case TGDevice.STATE_IDLE:
+                            break;
+                        case TGDevice.STATE_CONNECTING:
+                            break;
+                        case TGDevice.STATE_CONNECTED:
+                            tgDevice.start();
+                            break;
+                        case TGDevice.STATE_DISCONNECTED:
+                            break;
+                        case TGDevice.STATE_NOT_FOUND:
+                        case TGDevice.STATE_NOT_PAIRED:
+                        default:
+                            break;
+                    }
+                    break;
+                case TGDevice.MSG_POOR_SIGNAL:
+                    Log.v("HelloEEG", "PoorSignal: " + msg.arg1);
+                case TGDevice.MSG_ATTENTION:
+                    Log.v("HelloEEG", "Attention: " + msg.arg1);
+                    break;
+                case TGDevice.MSG_RAW_DATA:
+                    int rawValue = msg.arg1;
+                    break;
+                case TGDevice.MSG_EEG_POWER:
+                    TGEegPower ep = (TGEegPower) msg.obj;
+                    Log.v("HelloEEG", "Delta: " + ep.delta);
+                default:
+                    break;
+
+            }
+        }
+    };
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -105,13 +164,28 @@ public class Game extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                //openSettings();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    public void startEEG(View view) {
+        //Its Starting the device
+        if (tgDevice.getState() != TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
+            tgDevice.connect(true);
+    }
+
+    public void stopEEG(View view){
+        //Its Stoping the device
+        if(tgDevice.getState() !=TGDevice.STATE_DISCONNECTED)
+            tgDevice.connect(false);
     }
 }
+
+
