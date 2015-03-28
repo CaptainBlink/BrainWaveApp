@@ -62,7 +62,7 @@ public class Barriermanager {
         }
 
     }
-   /* public void draw(Canvas canvas){
+    public void draw(Canvas canvas){
         for (int i=0;i<Num+1; i++){
             TopWalls.get(i).draw(canvas);
             BottomWalls.get(i).draw(canvas);
@@ -74,8 +74,9 @@ public class Barriermanager {
             TopWalls.get(i).update(dt, true);
             BottomWalls.get(i).update(dt, false);
         }
-    }*/
+    }
 
     //I'm not sure are these methods correct!
-    //P.S. Reka please check them from the tutorial :)
+    //If you consider the tutorial correct, it's all like that
+    //P.S. Reka please check them from the tutorial :) Checked :D
 }
