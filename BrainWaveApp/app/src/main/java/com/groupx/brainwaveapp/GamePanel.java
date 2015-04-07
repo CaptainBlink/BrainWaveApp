@@ -3,9 +3,12 @@ package com.groupx.brainwaveapp;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import java.util.ArrayList;
 
 /**
  * Created by CaptainFlint on 24-Mar-15.
@@ -31,7 +34,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         background = new Background(BitmapFactory.decodeResource(getResources(), R.mipmap.gamebackground), ScreeWidth , this);
         BM = new Barriermanager(BitmapFactory.decodeResource(getResources(), R.mipmap.block),this);
 
-        hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.character), 100, 0, ScreeWidth, Screenheight);
+        hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.ship), 100, 0, ScreeWidth, Screenheight);
         coin = new Bonus(BitmapFactory.decodeResource(getResources(), R.mipmap.coin), -200,-200);
         coin.setBarrierManager(BM);
         setFocusable(true);
@@ -67,7 +70,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     void Update(float dt){
 
         background.update(dt);
+        coin.update(dt);
         hero.update(dt);
+        ArrayList<Point> coin_point = new ArrayList<Point>(coin.GetArray());
+        if(hero.bump(coin_point.get(0), coin_point.get(1), coin_point.get(2), coin_point.get(3))){
+            coin.setX(-200);
+            coin.setY(-200);
+        }
     }
 
     @Override
