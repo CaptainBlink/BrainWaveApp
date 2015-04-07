@@ -88,7 +88,11 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         if(hero.bump(coin_point.get(0), coin_point.get(1), coin_point.get(2), coin_point.get(3))){
             coin.setX(-200);
             coin.setY(-200);
+            Message msg = BM.game_panel.game.handler.obtainMessage();
+            msg.what = 0;
+            BM.game_panel.game.handler.sendMessage(msg);
         }
+
     }
 
     @Override
