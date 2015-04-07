@@ -7,6 +7,15 @@ import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.graphics.Bitmap;
+import android.graphics.AvoidXfermode;
+import android.graphics.Color;
+import android.graphics.Point;
+import android.media.MediaPlayer;
+import android.os.Message;
+
+import java.util.ArrayList;
+
 
 import java.util.ArrayList;
 
@@ -25,6 +34,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     private Bonus coin;
     public int ScreeWidth;
     public int Screenheight;
+    public Game game;
 
     public GamePanel(Context context, Game game, int ScreeWidth, int Screenheight) {
         super(context);
@@ -36,6 +46,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
         hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.ship), 100, 0, ScreeWidth, Screenheight);
         coin = new Bonus(BitmapFactory.decodeResource(getResources(), R.mipmap.coin), -200,-200);
+
         coin.setBarrierManager(BM);
         setFocusable(true);
         CharacterSpeed = ScreeWidth/2.f;
@@ -64,6 +75,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
                 background.draw(canvas);
                 coin.draw(canvas);
                 hero.draw(canvas);
+                BM.draw(canvas);
             }
     }
 
