@@ -19,7 +19,11 @@
         </activity>
         <activity
 <<<<<<< HEAD
+<<<<<<< HEAD
             android:name="Game"
+=======
+            android:name=".Game"
+>>>>>>> parent of 74374b5... something more
 =======
             android:name=".Game"
 >>>>>>> parent of 74374b5... something more
