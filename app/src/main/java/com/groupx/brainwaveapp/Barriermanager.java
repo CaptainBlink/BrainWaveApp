@@ -67,9 +67,13 @@ public class Barriermanager {
         }
 
     }
+<<<<<<< HEAD:app/src/main/java/com/groupx/brainwaveapp/Barriermanager.java
 
     public void draw(Canvas canvas){
 
+=======
+   /* public void draw(Canvas canvas){
+>>>>>>> origin/master:BrainWaveApp/app/src/main/java/com/groupx/brainwaveapp/Barriermanager.java
         for (int i=0;i<Num+1; i++){
             TopWalls.get(i).draw(canvas);
             BottomWalls.get(i).draw(canvas);
@@ -83,7 +87,15 @@ public class Barriermanager {
             TopWalls.get(i).update(dt, true);
             BottomWalls.get(i).update(dt, false);
         }
+<<<<<<< HEAD:app/src/main/java/com/groupx/brainwaveapp/Barriermanager.java
 
     }
 
 }
+=======
+    }*/
+
+    //I'm not sure are these methods correct!
+    //P.S. Reka please check them from the tutorial :)
+}
+>>>>>>> origin/master:BrainWaveApp/app/src/main/java/com/groupx/brainwaveapp/Barriermanager.java
