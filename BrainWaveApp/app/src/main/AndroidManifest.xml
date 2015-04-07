@@ -23,5 +23,6 @@
         <activity android:name="Game" android:screenOrientation="sensorLandscape"></activity>
 
     </application>
+    //asdadsa
 
 </manifest>
