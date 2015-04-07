@@ -19,6 +19,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     private Hero hero;
     public float CharacterSpeed;
     private Barriermanager BM;
+    private Bonus coin;
+    public int ScreeWidth;
+    public int Screenheight;
 
     public GamePanel(Context context, Game game, int ScreeWidth, int Screenheight) {
         super(context);
@@ -29,8 +32,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         BM = new Barriermanager(BitmapFactory.decodeResource(getResources(), R.mipmap.block),this);
 
         hero = new Hero(BitmapFactory.decodeResource(getResources(), R.mipmap.character), 100, 0, ScreeWidth, Screenheight);
+        coin = new Bonus(BitmapFactory.decodeResource(getResources(), R.mipmap.coin), -200,-200);
+        coin.setBarrierManager(BM);
         setFocusable(true);
         CharacterSpeed = ScreeWidth/2.f;
+        this.ScreeWidth = ScreeWidth;
+        this.Screenheight = Screenheight;
     }
 
     @Override
@@ -52,6 +59,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             if (canvas!=null) {
 
                 background.draw(canvas);
+                coin.draw(canvas);
                 hero.draw(canvas);
             }
     }
