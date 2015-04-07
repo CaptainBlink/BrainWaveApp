@@ -18,19 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:name="Game"
-=======
-            android:name=".Game"
->>>>>>> parent of 74374b5... something more
-=======
-            android:name=".Game"
->>>>>>> parent of 74374b5... something more
-=======
-            android:name=".Game"
->>>>>>> parent of 74374b5... something more
             android:screenOrientation="sensorLandscape">
         </activity>
     </application>
