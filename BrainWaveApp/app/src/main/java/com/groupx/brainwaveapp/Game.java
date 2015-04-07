@@ -113,7 +113,7 @@ public class Game extends Activity {
 
     }
 
-    private final Handler handler = new Handler() {
+    public final Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
