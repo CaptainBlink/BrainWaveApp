@@ -77,6 +77,7 @@ public class Game extends Activity {
         score+= 200;
         txt.setText("Score: " + score);
         MediaPlayer mp = MediaPlayer.create(Game.this, R.raw.coin);
+        mp.setVolume(0.3f,0.3f);
         mp.start();
         if (get_coins == 2){
             i_win();
@@ -89,6 +90,7 @@ public class Game extends Activity {
         if (GameMusic.isPlaying())
             GameMusic.stop();
         GameMusic = MediaPlayer.create(Game.this, R.raw.victory);
+        GameMusic.setVolume(0.3f,0.3f);
         GameMusic.start();
         game_panel.Pause_game = true;
         WinDialog.setVisibility(View.VISIBLE);
@@ -100,6 +102,7 @@ public class Game extends Activity {
         if (GameMusic.isPlaying())
             GameMusic.stop();
         GameMusic = MediaPlayer.create(Game.this, R.raw.game_over);
+        GameMusic.setVolume(0.3f,0.3f);
         GameMusic.start();
         game_panel.Pause_game = true;
         LoseDialog.setVisibility(View.VISIBLE);

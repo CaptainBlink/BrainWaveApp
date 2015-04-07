@@ -108,6 +108,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
                 {
                     hero.death = true;
                     MediaPlayer mp = MediaPlayer.create(game, R.raw.boom);
+                    mp.setVolume(0.3f,0.3f);
                     mp.start();
                     Message msg = BM.game_panel.game.handler.obtainMessage();
                     msg.what = 1;
