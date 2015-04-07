@@ -110,7 +110,7 @@ public class Game extends Activity {
         ImageView MainMenuTo = (ImageView) PauseMenu.findViewById(R.id.toMain);
         Cont.setOnClickListener(Continue_List);
         MainMenuTo.setOnClickListener(To_Main_Menu);
-        txt = (TextView) findViewById(R.id.txt);
+
     }
 
     private final Handler handler = new Handler() {
