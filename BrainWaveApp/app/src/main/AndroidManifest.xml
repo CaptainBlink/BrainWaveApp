@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.brainwaveapp"
-    android:versionCode="1"
-    android:versionName="1.0" >
-
-    <uses-sdk android:minSdkVersion="8" />
+    package="com.groupx.brainwaveapp" >
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-        >
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         <activity
-            android:name="com.groupx.brainwaveapp.MainMenu"
-            android:label="@string/app_name" android:screenOrientation="sensorLandscape">
+            android:name=".MainMenu"
+            android:label="@string/title_activity_main_menu"
+            android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity
             android:name="Game"
             android:screenOrientation="sensorLandscape">
         </activity>
-=======
-        <activity android:name="com.groupx.brainwaveapp.Game" android:screenOrientation="sensorLandscape"></activity>
-
->>>>>>> origin/master
     </application>
 
 </manifest>
