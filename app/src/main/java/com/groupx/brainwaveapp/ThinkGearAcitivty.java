@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import com.neurosky.thinkgear.TGDevice;
 import com.neurosky.thinkgear.*;
@@ -18,7 +19,7 @@ import android.view.View.OnClickListener;
 /**
  * Created by Vasil on 8.4.2015 г..
  */
-public class ThinkGearAcitivty extends Activity{
+public class ThinkGearAcitivty extends ActionBarActivity {
 
 
     TGDevice tgDevice;
@@ -89,10 +90,10 @@ public class ThinkGearAcitivty extends Activity{
         }
     };
 
-<<<<<<< HEAD
+
   //  Button buttonStart = (Button) findViewById(R.id.buttonStart);
    // Button buttonStop = (Button) findViewById(R.id.buttonStop);
-=======
+
   /*  final Button buttonStart = (Button) findViewById(R.id.buttonStart);
     final Button buttonStop = (Button) findViewById(R.id.buttonStop);
 >>>>>>> origin/master
@@ -112,15 +113,15 @@ public class ThinkGearAcitivty extends Activity{
 
 
 
-<<<<<<< HEAD
 
-=======
+
+
         public void doStuff(View view){
             if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
                 tgDevice.connect(rawEnabled);
         }
-*/
->>>>>>> origin/master
+
+
 
     public void onDestroy(){
         super.onDestroy();
