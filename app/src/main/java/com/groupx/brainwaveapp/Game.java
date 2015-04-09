@@ -153,26 +153,12 @@ public class Game extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pause_menu);
+        setContentView(R.layout.game);
         Rel_main_game = (RelativeLayout) findViewById(R.id.main_game_rl);
         DisplayMetrics dm = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(dm);
 
-        Button button_connect = (Button) findViewById(R.id.button_connect);
 
-        button_connect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tgDevice.connect(rawEnabled);
-
-            }
-        });
-
-        btAdapter = BluetoothAdapter.getDefaultAdapter();
-        if(btAdapter != null){
-            tgDevice = new TGDevice(btAdapter, handler);
-
-        }
 
 
         final int heightS = dm.heightPixels;
@@ -229,53 +215,6 @@ public class Game extends Activity {
 
     }
 
-    private final Handler handlerr = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case TGDevice.MSG_STATE_CHANGE:
-                    switch (msg.arg1) {
-                        case TGDevice.STATE_IDLE:
-                            break;
-                        case TGDevice.STATE_CONNECTING:
-                            break;
-                        case TGDevice.STATE_CONNECTED:
-                            tgDevice.start();
-                            break;
-                        case TGDevice.STATE_DISCONNECTED:
-                            break;
-                        case TGDevice.STATE_NOT_FOUND:
-
-                        default:
-                            break;
-                    }
-                    break;
-                case TGDevice.MSG_POOR_SIGNAL:
-                    Log.v("HelloEEG", "PoorSignal: " + msg.arg1);
-                case TGDevice.MSG_ATTENTION:
-
-                    Log.v("HelloEEG", "Attention: " + msg.arg1);
-                    break;
-                case TGDevice.MSG_BLINK:
-                    Log.v("HelloEEG", "Blink:" +msg.arg1);
-
-                    break;
-                case TGDevice.MSG_RAW_DATA:
-                    int rawValue = msg.arg1;
-                    break;
-                case TGDevice.MSG_EEG_POWER:
-                    TGEegPower ep = (TGEegPower)msg.obj;
-                    Log.v("HelloEEG", "Delta: " + ep.delta);
-                default:
-                    break;
-            }
-        }
-    };
-
-
-    public void onDestroy(){
-        super.onDestroy();
-    }
 
     @Override
     public void onBackPressed() {

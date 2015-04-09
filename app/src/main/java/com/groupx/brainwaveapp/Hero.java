@@ -1,5 +1,6 @@
 package com.groupx.brainwaveapp;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Point;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by CaptainFlint on 25-Mar-15.
  */
-public class Hero {
+public class Hero extends Activity {
     private Bitmap bitmap;
     private int x;
     private int y;

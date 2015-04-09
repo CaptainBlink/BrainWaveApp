@@ -62,14 +62,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
 
-public void setHeroUp(MotionEvent eventt) {
-    if (eventt.getAction()== MotionEvent.ACTION_DOWN) {
-        hero.up = true;
-    }
-    else {
-        hero.up = false;
-    }
-}
 
 
 
