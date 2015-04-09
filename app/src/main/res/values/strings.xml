@@ -13,4 +13,5 @@
     <string name="lose">Oops! try again...</string>
     <string name="win">Congratulations! You Win!</string>
     <string name="options">Options</string>
+    <string name="connect">Connect</string>
 </resources>

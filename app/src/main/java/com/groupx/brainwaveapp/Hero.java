@@ -69,6 +69,11 @@ public class Hero extends Activity {
 
     }
 
+    public void setMove(float dt){
+        VertSpeed-=ScreenHeight*dt*2;
+        y+=VertSpeed*dt;
+    }
+
     public void update(float dt){
 
         if (death){

@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 
+import com.neurosky.thinkgear.TGDevice;
+
 /**
  * Created by CaptainFlint on 23-Mar-15.
  */
@@ -32,7 +34,6 @@ public class MainMenu extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
-
         Btn1 = (RelativeLayout) findViewById(R.id.btn_start);
         Btn2 = (RelativeLayout) findViewById(R.id.btn_quit);
         Btn3 = (RelativeLayout) findViewById(R.id.btn_options);
@@ -109,18 +110,10 @@ public class MainMenu extends Activity {
             @Override
             public void onClick(View v) {
                 menuSound.stop();
-<<<<<<< HEAD
+
                 Intent gear = new Intent(MainMenu.this, ThinkGearAcitivty.class);
                 startActivity(gear);
-=======
-<<<<<<< HEAD
-                Intent myIntent2 = new Intent(getApplicationContext(), ThinkGearAcitivty.class);
-                startActivity(myIntent2);
 
-=======
->>>>>>> origin/master
-
->>>>>>> origin/master
             }
         });
 

@@ -1,5 +1,6 @@
 package com.groupx.brainwaveapp;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,6 +35,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     public int ScreeWidth;
     public int Screenheight;
     public Game game;
+    public ThinkGearAcitivty thinkGearAcitivty;
+
+
 
     public GamePanel(Context context, Game game, int ScreeWidth, int Screenheight) {
         super(context);
@@ -61,23 +65,26 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     }
 
 
-public boolean onTouchEvent (MotionEvent event) {
-    if (event.getAction() == MotionEvent.ACTION_DOWN) ;
-    hero.up = true;
-
-    if (event.getAction() == MotionEvent.ACTION_UP) ;
-    hero.up = false;
-
+/*public boolean onTouchEvent (MotionEvent event) {
+    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        hero.up = true;
+    }
+    if (event.getAction() == MotionEvent.ACTION_UP) {
+        hero.up = false;
+    }
     return true;
-}
+}*/
 
 
-   /* public boolean onTouchEvent(Message event) {
-        String stuff = ""+event.arg1;
-        if (stuff == "MSG_BLINK"){
+   public boolean moveChar(){
+
+        if (thinkGearAcitivty.blink == true) {
             hero.up = true;
         }
-*/
+
+        return false;
+    }
+
 
 
 
@@ -157,4 +164,10 @@ public boolean onTouchEvent (MotionEvent event) {
         }
 
     }
+
+
+
+
+
+
 }

@@ -2,25 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_margin="15px"
     tools:context="com.groupx.brainwaveapp.pause_menu"
     android:id="@+id/Rel"
-    android:background="@mipmap/signal">
+    android:background="@mipmap/signal"
+    android:gravity="center">
 
 
     <RelativeLayout
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_weight="1"
-        android:gravity="center_vertical"
         android:id="@+id/relativeLayout"
-        android:layout_marginTop="113dp"
+        android:layout_marginTop="50dp"
         android:clickable="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="134dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="150dp"
         android:layout_marginStart="134dp">
 
 
@@ -32,7 +32,8 @@
             android:layout_height="fill_parent"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:layout_alignParentTop="false" />
 
     </RelativeLayout>
 
@@ -44,7 +45,7 @@
         android:layout_alignTop="@+id/relativeLayout"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="184dp"
+        android:layout_marginRight="150dp"
         android:layout_marginEnd="184dp">
 
 
@@ -62,17 +63,5 @@
 
 
     </RelativeLayout>
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:orientation="horizontal"
-        android:weightSum="1.0">
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_weight=".5"
-        android:layout_width="0dip"
-        android:textSize="12sp"
-        android:id="@+id/button_connect" android:text="Connect"/>
-    </LinearLayout>
+
 </RelativeLayout>

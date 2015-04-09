@@ -32,9 +32,7 @@ public class Game extends Activity {
     final static int UPDATE_SCORE = 0;
     final static int DEATH = 1;
     final static int LOSE = 2;
-    TGDevice tgDevice;
-    BluetoothAdapter btAdapter;
-    final boolean rawEnabled = true;
+
 
     View pauseButton;
     View PauseMenu;
@@ -240,6 +238,7 @@ public class Game extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
