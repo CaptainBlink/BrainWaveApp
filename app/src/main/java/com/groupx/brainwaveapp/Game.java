@@ -7,15 +7,21 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.os.Handler;
 import android.widget.TextView;
+import com.neurosky.thinkgear.TGDevice;
+import com.neurosky.thinkgear.*;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 
 
 /**
@@ -26,7 +32,9 @@ public class Game extends Activity {
     final static int UPDATE_SCORE = 0;
     final static int DEATH = 1;
     final static int LOSE = 2;
-
+    TGDevice tgDevice;
+    BluetoothAdapter btAdapter;
+    final boolean rawEnabled = true;
 
     View pauseButton;
     View PauseMenu;
@@ -145,10 +153,27 @@ public class Game extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game);
+        setContentView(R.layout.pause_menu);
         Rel_main_game = (RelativeLayout) findViewById(R.id.main_game_rl);
         DisplayMetrics dm = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        Button button_connect = (Button) findViewById(R.id.button_connect);
+
+        button_connect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tgDevice.connect(rawEnabled);
+
+            }
+        });
+
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        if(btAdapter != null){
+            tgDevice = new TGDevice(btAdapter, handler);
+
+        }
+
 
         final int heightS = dm.heightPixels;
         final int widthS = dm.widthPixels;
@@ -202,6 +227,54 @@ public class Game extends Activity {
         GameMusic.setVolume(0.3f,0.3f);
         GameMusic.start();
 
+    }
+
+    private final Handler handlerr = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case TGDevice.MSG_STATE_CHANGE:
+                    switch (msg.arg1) {
+                        case TGDevice.STATE_IDLE:
+                            break;
+                        case TGDevice.STATE_CONNECTING:
+                            break;
+                        case TGDevice.STATE_CONNECTED:
+                            tgDevice.start();
+                            break;
+                        case TGDevice.STATE_DISCONNECTED:
+                            break;
+                        case TGDevice.STATE_NOT_FOUND:
+
+                        default:
+                            break;
+                    }
+                    break;
+                case TGDevice.MSG_POOR_SIGNAL:
+                    Log.v("HelloEEG", "PoorSignal: " + msg.arg1);
+                case TGDevice.MSG_ATTENTION:
+
+                    Log.v("HelloEEG", "Attention: " + msg.arg1);
+                    break;
+                case TGDevice.MSG_BLINK:
+                    Log.v("HelloEEG", "Blink:" +msg.arg1);
+
+                    break;
+                case TGDevice.MSG_RAW_DATA:
+                    int rawValue = msg.arg1;
+                    break;
+                case TGDevice.MSG_EEG_POWER:
+                    TGEegPower ep = (TGEegPower)msg.obj;
+                    Log.v("HelloEEG", "Delta: " + ep.delta);
+                default:
+                    break;
+            }
+        }
+    };
+
+
+    public void onDestroy(){
+        super.onDestroy();
     }
 
     @Override

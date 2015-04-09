@@ -9,6 +9,7 @@ import android.util.Log;
 import com.neurosky.thinkgear.TGDevice;
 import com.neurosky.thinkgear.*;
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -69,10 +70,12 @@ public class ThinkGearAcitivty extends Activity{
                 case TGDevice.MSG_POOR_SIGNAL:
                     Log.v("HelloEEG", "PoorSignal: " + msg.arg1);
                 case TGDevice.MSG_ATTENTION:
+
                     Log.v("HelloEEG", "Attention: " + msg.arg1);
                     break;
                 case TGDevice.MSG_BLINK:
                     Log.v("HelloEEG", "Blink:" +msg.arg1);
+
                     break;
                 case TGDevice.MSG_RAW_DATA:
                     int rawValue = msg.arg1;
@@ -86,8 +89,13 @@ public class ThinkGearAcitivty extends Activity{
         }
     };
 
+<<<<<<< HEAD
   //  Button buttonStart = (Button) findViewById(R.id.buttonStart);
    // Button buttonStop = (Button) findViewById(R.id.buttonStop);
+=======
+  /*  final Button buttonStart = (Button) findViewById(R.id.buttonStart);
+    final Button buttonStop = (Button) findViewById(R.id.buttonStop);
+>>>>>>> origin/master
 
 
        /* public void onClick(View view) {
@@ -104,7 +112,15 @@ public class ThinkGearAcitivty extends Activity{
 
 
 
+<<<<<<< HEAD
 
+=======
+        public void doStuff(View view){
+            if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
+                tgDevice.connect(rawEnabled);
+        }
+*/
+>>>>>>> origin/master
 
     public void onDestroy(){
         super.onDestroy();
