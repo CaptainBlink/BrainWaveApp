@@ -12,4 +12,5 @@
     <string name="main_menu">Main Menu</string>
     <string name="lose">Oops! try again...</string>
     <string name="win">Congratulations! You Win!</string>
+    <string name="options">Options</string>
 </resources>

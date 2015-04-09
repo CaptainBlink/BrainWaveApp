@@ -20,10 +20,13 @@ public class MainMenu extends Activity {
 
     RelativeLayout Btn1;
     RelativeLayout Btn2;
+    RelativeLayout Btn3;
     ImageView ImageButton1;
     ImageView ImageButton2;
+    ImageView ImageButton3;
     TextView txt1;
     TextView txt2;
+    TextView txt3;
     MediaPlayer menuSound;
 
     public void onCreate(Bundle savedInstanceState){
@@ -32,14 +35,18 @@ public class MainMenu extends Activity {
 
         Btn1 = (RelativeLayout) findViewById(R.id.btn_start);
         Btn2 = (RelativeLayout) findViewById(R.id.btn_quit);
+        Btn3 = (RelativeLayout) findViewById(R.id.btn_options);
         ImageButton1 = (ImageView) findViewById(R.id.img_btn1);
         ImageButton2 = (ImageView) findViewById(R.id.img_btn2);
+        ImageButton3 = (ImageView) findViewById(R.id.img_btn3);
         txt1 = (TextView) findViewById(R.id.text_start);
         txt2 = (TextView) findViewById(R.id.text_quit);
+        txt3 = (TextView) findViewById(R.id.text_options);
 
         Typeface Custom = Typeface.createFromAsset(getAssets(), "orange juice 2.0.ttf");
         txt1.setTypeface(Custom);
         txt2.setTypeface(Custom);
+        txt3.setTypeface(Custom);
 
         Btn1.setOnTouchListener(new OnTouchListener() {
             @Override
@@ -95,6 +102,14 @@ public class MainMenu extends Activity {
                 finish();
                 System.exit(0);
 
+            }
+        });
+
+        Btn3.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuSound.stop();
+                setContentView(R.layout.main);
             }
         });
 
