@@ -13,6 +13,7 @@ import android.view.SurfaceView;
 import android.graphics.Point;
 
 import com.neurosky.thinkgear.TGDevice;
+import com.neurosky.thinkgear.TGEegPower;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     public MainThread thread;
     public boolean Pause_game;
     private Background background;
-    private Hero hero;
+    public Hero hero;
     private Barriermanager BM;
     private Bonus coin;
     public float CharacterSpeed;
@@ -59,15 +60,25 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         this.Screenheight = Screenheight;
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
 
-        if (event.getAction()== TGDevice.MSG_BLINK){
+
+public void setHeroUp(MotionEvent eventt) {
+    if (eventt.getAction()== MotionEvent.ACTION_DOWN) {
+        hero.up = true;
+    }
+    else {
+        hero.up = false;
+    }
+}
+
+
+
+    public boolean onTouchEvent(Message event) {
+        String stuff = ""+event.arg1;
+        if (stuff == "MSG_BLINK"){
             hero.up = true;
         }
-        if (event.getAction()==MotionEvent.ACTION_UP){
-            hero.up = false;
-        }
+
 
         return true;
     }

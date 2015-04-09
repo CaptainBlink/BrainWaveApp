@@ -9,6 +9,7 @@ import android.util.Log;
 import com.neurosky.thinkgear.TGDevice;
 import com.neurosky.thinkgear.*;
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -69,10 +70,12 @@ public class ThinkGearAcitivty extends Activity{
                 case TGDevice.MSG_POOR_SIGNAL:
                     Log.v("HelloEEG", "PoorSignal: " + msg.arg1);
                 case TGDevice.MSG_ATTENTION:
+
                     Log.v("HelloEEG", "Attention: " + msg.arg1);
                     break;
                 case TGDevice.MSG_BLINK:
                     Log.v("HelloEEG", "Blink:" +msg.arg1);
+
                     break;
                 case TGDevice.MSG_RAW_DATA:
                     int rawValue = msg.arg1;
@@ -112,7 +115,6 @@ public class ThinkGearAcitivty extends Activity{
 */
 
     public void onDestroy(){
-        tgDevice.close();
         super.onDestroy();
     }
 
