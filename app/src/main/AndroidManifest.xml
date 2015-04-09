@@ -21,9 +21,6 @@
             android:name=".Game"
             android:screenOrientation="sensorLandscape">
         </activity>
-        <activity
-            android:name=".ThinkGearAcitivty">
-            </activity>
     </application>
 
 </manifest>
