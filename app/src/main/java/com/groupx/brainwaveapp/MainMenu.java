@@ -109,7 +109,8 @@ public class MainMenu extends Activity {
             @Override
             public void onClick(View v) {
                 menuSound.stop();
-
+                Intent gear = new Intent(MainMenu.this, ThinkGearAcitivty.class);
+                startActivity(gear);
             }
         });
 
