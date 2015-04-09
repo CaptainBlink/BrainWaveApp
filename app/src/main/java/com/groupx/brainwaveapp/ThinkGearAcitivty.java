@@ -113,15 +113,21 @@ public class ThinkGearAcitivty extends ActionBarActivity {
 
 
 
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> origin/master
         public void doStuff(View view){
             if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
                 tgDevice.connect(rawEnabled);
         }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 
     public void onDestroy(){
         super.onDestroy();
