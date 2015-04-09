@@ -10,12 +10,15 @@ import com.neurosky.thinkgear.TGDevice;
 import com.neurosky.thinkgear.*;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 /**
  * Created by Vasil on 8.4.2015 г..
  */
 public class ThinkGearAcitivty extends Activity{
+
 
     TGDevice tgDevice;
     BluetoothAdapter btAdapter;
@@ -25,6 +28,7 @@ public class ThinkGearAcitivty extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
 
 
         btAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -70,6 +74,25 @@ public class ThinkGearAcitivty extends Activity{
             }
         }
     };
+
+    final Button buttonStart = (Button) findViewById(R.id.buttonStart);
+    final Button buttonStop = (Button) findViewById(R.id.buttonStop);
+
+
+        public void onClick(View view) {
+
+            buttonStart.setVisibility(View.GONE);
+            buttonStop.setVisibility(View.VISIBLE);
+
+        }
+
+        public void onClicks(View view) {
+            buttonStop.setVisibility(View.GONE);
+            buttonStart.setVisibility(View.VISIBLE);
+        }
+
+
+
 
         public void doStuff(View view){
             if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
