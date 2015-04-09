@@ -31,6 +31,12 @@ public class ThinkGearAcitivty extends Activity{
 
        Button button_connect = (Button) findViewById(R.id.button_connect);
 
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        if(btAdapter != null){
+            tgDevice = new TGDevice(btAdapter, handler);
+
+        }
+
         button_connect.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,12 +44,6 @@ public class ThinkGearAcitivty extends Activity{
                 
             }
         });
-
-        btAdapter = BluetoothAdapter.getDefaultAdapter();
-        if(btAdapter != null){
-            tgDevice = new TGDevice(btAdapter, handler);
-
-        }
     }
     private final Handler handler = new Handler() {
         @Override
@@ -86,11 +86,11 @@ public class ThinkGearAcitivty extends Activity{
         }
     };
 
-    final Button buttonStart = (Button) findViewById(R.id.buttonStart);
-    final Button buttonStop = (Button) findViewById(R.id.buttonStop);
+  //  Button buttonStart = (Button) findViewById(R.id.buttonStart);
+   // Button buttonStop = (Button) findViewById(R.id.buttonStop);
 
 
-        public void onClick(View view) {
+       /* public void onClick(View view) {
 
             buttonStart.setVisibility(View.GONE);
             buttonStop.setVisibility(View.VISIBLE);
@@ -100,19 +100,13 @@ public class ThinkGearAcitivty extends Activity{
         public void onClicks(View view) {
             buttonStop.setVisibility(View.GONE);
             buttonStart.setVisibility(View.VISIBLE);
-        }
+        }*/
 
 
 
-
-        public void doStuff(View view){
-            if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
-                tgDevice.connect(rawEnabled);
-        }
 
 
     public void onDestroy(){
-        tgDevice.close();
         super.onDestroy();
     }
 

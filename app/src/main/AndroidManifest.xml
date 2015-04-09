@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.groupx.brainwaveapp" >
-
+    <uses-permission android:name="android.permission.BLUETOOTH" />
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        <uses-permission android:name="android.permission.BLUETOOTH" />
+
         <activity
             android:name=".MainMenu"
             android:label="@string/title_activity_main_menu"
@@ -21,6 +21,9 @@
             android:name=".Game"
             android:screenOrientation="sensorLandscape">
         </activity>
+        <activity
+            android:name=".ThinkGearAcitivty">
+            </activity>
     </application>
 
 </manifest>
