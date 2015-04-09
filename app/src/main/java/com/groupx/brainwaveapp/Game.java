@@ -74,12 +74,12 @@ public class Game extends Activity {
     protected void i_get_coin() {
 
         get_coins++;
-        score+= 200;
+        score+= 100;
         txt.setText("Score: " + score);
         MediaPlayer mp = MediaPlayer.create(Game.this, R.raw.coin);
         mp.setVolume(0.3f,0.3f);
         mp.start();
-        if (get_coins == 2){
+        if (get_coins == 10){
             i_win();
         }
 
@@ -102,7 +102,7 @@ public class Game extends Activity {
         if (GameMusic.isPlaying())
             GameMusic.stop();
         GameMusic = MediaPlayer.create(Game.this, R.raw.game_over);
-        GameMusic.setVolume(0.3f,0.3f);
+        GameMusic.setVolume(0.1f,0.1f);
         GameMusic.start();
         game_panel.Pause_game = true;
         LoseDialog.setVisibility(View.VISIBLE);

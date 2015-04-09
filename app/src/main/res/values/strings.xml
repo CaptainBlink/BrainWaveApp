@@ -11,5 +11,5 @@
     <string name="menu_continue">Continue</string>
     <string name="main_menu">Main Menu</string>
     <string name="lose">Oops! try again...</string>
-    <string name="win">Congratulations! you winner!</string>
+    <string name="win">Congratulations! You Win!</string>
 </resources>
