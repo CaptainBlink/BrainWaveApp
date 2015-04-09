@@ -63,6 +63,9 @@ public class ThinkGearAcitivty extends Activity{
                 case TGDevice.MSG_ATTENTION:
                     Log.v("HelloEEG", "Attention: " + msg.arg1);
                     break;
+                case TGDevice.MSG_BLINK:
+                    Log.v("HelloEEG", "Blink:" +msg.arg1);
+                    break;
                 case TGDevice.MSG_RAW_DATA:
                     int rawValue = msg.arg1;
                     break;
@@ -98,9 +101,49 @@ public class ThinkGearAcitivty extends Activity{
             if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
                 tgDevice.connect(rawEnabled);
         }
+
+
     public void onDestroy(){
         tgDevice.close();
         super.onDestroy();
     }
+
+    private void reconnectDevice() {
+        int tries = 120; //1 hour to reconnect
+        boolean first = true;
+
+        while (tries > 0) {
+            boolean connecting = false;
+
+            if (tgDevice.getState() == TGDevice.STATE_CONNECTED) {
+                return;
+            } else if (tgDevice.getState() == TGDevice.STATE_CONNECTING) {
+                connecting = true;
+            } else {
+                tgDevice.connect(rawEnabled);
+            }
+
+            if (!connecting) {
+                if (!first) {
+
+                }
+
+                tries--;
+                first = false;
+            }
+
+            try {
+                Thread.sleep(1000*30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+
+
+
+
 
 }
