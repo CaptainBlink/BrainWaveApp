@@ -109,7 +109,8 @@ public class MainMenu extends Activity {
             @Override
             public void onClick(View v) {
                 menuSound.stop();
-                setContentView(R.layout.main);
+                Intent myIntent = new Intent(MainMenu.this, ThinkGearAcitivty.class);
+                startActivity(myIntent);
             }
         });
 

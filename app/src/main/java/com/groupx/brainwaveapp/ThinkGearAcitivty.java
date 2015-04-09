@@ -86,7 +86,7 @@ public class ThinkGearAcitivty extends Activity{
         }
     };
 
-    final Button buttonStart = (Button) findViewById(R.id.buttonStart);
+  /*  final Button buttonStart = (Button) findViewById(R.id.buttonStart);
     final Button buttonStop = (Button) findViewById(R.id.buttonStop);
 
 
@@ -109,7 +109,7 @@ public class ThinkGearAcitivty extends Activity{
             if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
                 tgDevice.connect(rawEnabled);
         }
-
+*/
 
     public void onDestroy(){
         tgDevice.close();

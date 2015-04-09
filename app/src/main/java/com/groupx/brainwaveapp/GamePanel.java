@@ -11,6 +11,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.graphics.Point;
+
+import com.neurosky.thinkgear.TGDevice;
+
 import java.util.ArrayList;
 
 
@@ -59,7 +62,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        if (event.getAction()==MotionEvent.ACTION_DOWN){
+        if (event.getAction()== TGDevice.MSG_BLINK){
             hero.up = true;
         }
         if (event.getAction()==MotionEvent.ACTION_UP){
