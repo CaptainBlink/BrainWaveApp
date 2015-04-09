@@ -61,19 +61,25 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     }
 
 
+public boolean onTouchEvent (MotionEvent event) {
+    if (event.getAction() == MotionEvent.ACTION_DOWN) ;
+    hero.up = true;
+
+    if (event.getAction() == MotionEvent.ACTION_UP) ;
+    hero.up = false;
+
+    return true;
+}
 
 
-
-
-    public boolean onTouchEvent(Message event) {
+   /* public boolean onTouchEvent(Message event) {
         String stuff = ""+event.arg1;
         if (stuff == "MSG_BLINK"){
             hero.up = true;
         }
+*/
 
 
-        return true;
-    }
 
     void Draw(Canvas canvas){
 
