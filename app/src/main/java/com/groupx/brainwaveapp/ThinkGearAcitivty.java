@@ -29,7 +29,15 @@ public class ThinkGearAcitivty extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+       Button button_connect = (Button) findViewById(R.id.button_connect);
 
+        button_connect.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tgDevice.connect(rawEnabled);
+                
+            }
+        });
 
         btAdapter = BluetoothAdapter.getDefaultAdapter();
         if(btAdapter != null){
