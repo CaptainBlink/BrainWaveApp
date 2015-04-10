@@ -47,11 +47,20 @@ public class Game extends Activity {
     TextView txt;
     int get_coins = 0;
     int score = 0;
+    Hero hero;
+
+    TGDevice tgDevice;
+    BluetoothAdapter btAdapter;
 
     final Handler handler = new Handler(){
 
         public void handleMessage(Message msg){
 
+
+
+            if(msg.what == TGDevice.MSG_ATTENTION){
+
+            }
             if (msg.what == UPDATE_SCORE){
                 i_get_coin();
             }
@@ -72,6 +81,8 @@ public class Game extends Activity {
             if (msg.what == LOSE){
                 i_lose();
             }
+
+
 
             super.handleMessage(msg);
         }
@@ -126,6 +137,8 @@ public class Game extends Activity {
 
         }
     };
+
+
 
     View.OnClickListener To_Main_Menu = new View.OnClickListener() {
         @Override
@@ -210,6 +223,7 @@ public class Game extends Activity {
         GameMusic = MediaPlayer.create(Game.this, R.raw.game_sound);
         GameMusic.setVolume(0.3f,0.3f);
         GameMusic.start();
+
 
     }
 

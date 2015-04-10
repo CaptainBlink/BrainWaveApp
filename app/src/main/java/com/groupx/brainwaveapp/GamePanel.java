@@ -35,7 +35,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     public int ScreeWidth;
     public int Screenheight;
     public Game game;
-    public ThinkGearAcitivty thinkGearAcitivty;
 
 
 
@@ -65,7 +64,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     }
 
 
-/*public boolean onTouchEvent (MotionEvent event) {
+public boolean onTouchEvent (MotionEvent event) {
     if (event.getAction() == MotionEvent.ACTION_DOWN) {
         hero.up = true;
     }
@@ -73,18 +72,17 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         hero.up = false;
     }
     return true;
-}*/
+}
 
 
-   public boolean moveChar(){
 
-        if (thinkGearAcitivty.blink == true) {
-            hero.up = true;
-        }
+public void setMove(Message msg){
+    if (msg.arg1 == TGDevice.MSG_BLINK) {
+        hero.up = true;
 
-        return false;
     }
 
+}
 
 
 
@@ -106,6 +104,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         hero.update(dt);
         if (!hero.death)
         {
+            Message msg_blink = game.handler.obtainMessage();
+            msg_blink.what = 10;
             background.update(dt);
             coin.update(dt);
             BM.update(dt);

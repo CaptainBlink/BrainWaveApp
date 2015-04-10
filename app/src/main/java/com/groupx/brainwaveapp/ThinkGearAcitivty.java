@@ -25,7 +25,8 @@ public class ThinkGearAcitivty extends Activity {
     BluetoothAdapter btAdapter;
     final boolean rawEnabled = true;
     Hero hero;
-    public boolean blink;
+    GamePanel gamePanel;
+
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class ThinkGearAcitivty extends Activity {
     private final Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            //gamePanel.setMove(msg);
             switch (msg.what) {
                 case TGDevice.MSG_STATE_CHANGE:
                     switch (msg.arg1) {
@@ -75,12 +77,10 @@ public class ThinkGearAcitivty extends Activity {
 
                     Log.v("HelloEEG", "Attention: " + msg.arg1);
 
+
                     break;
                 case TGDevice.MSG_BLINK:
                     Log.v("HelloEEG", "Blink:" +msg.arg1);
-                    if (msg.arg1 >0){
-                        blink = true;
-                    }
 
                     break;
                 case TGDevice.MSG_RAW_DATA:
