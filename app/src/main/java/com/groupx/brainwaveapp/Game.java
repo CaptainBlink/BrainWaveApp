@@ -88,7 +88,7 @@ public class Game extends Activity {
         MediaPlayer mp = MediaPlayer.create(Game.this, R.raw.coin);
         mp.setVolume(0.3f,0.3f);
         mp.start();
-        if (get_coins == 10){
+        if (get_coins == 999999999){
             i_win();
         }
 

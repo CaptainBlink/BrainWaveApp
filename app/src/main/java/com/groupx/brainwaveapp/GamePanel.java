@@ -60,17 +60,44 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         this.Screenheight = Screenheight;
     }
 
+   /* public void setMove(Message event) {
+        String stuff = ""+event.arg1;
+        stuff = "MSG_BLINK";
+        hero.up=true;
+    }*/
 
 public boolean onTouchEvent (MotionEvent event) {
-    if (event.getAction() == MotionEvent.ACTION_DOWN) ;
-    hero.up = true;
+        if (event.getAction() == MotionEvent.ACTION_DOWN) ;
+        hero.up = true;
 
-    if (event.getAction() == MotionEvent.ACTION_UP) ;
-    hero.up = false;
+        if (event.getAction() == MotionEvent.ACTION_UP) ;
+        hero.up = false;
 
-    return true;
+        return true;
 }
 
+  /*  public boolean setMove(Message msg){
+        if(msg.arg1 == TGDevice.MSG_BLINK) {
+            hero.up = true;
+        }
+        else {
+            hero.up=false;
+        }
+        return true;
+    }*/
+
+/*public void setMove (){
+    if (TGDevice.MSG_BLINK > 20){
+
+        hero.up=true;
+    }
+    hero.up=false;
+}
+*/
+
+  /* public void setMove (){
+        CharacterSpeed = ScreeWidth/3.f;}
+    */
 
    /* public boolean onTouchEvent(Message event) {
         String stuff = ""+event.arg1;

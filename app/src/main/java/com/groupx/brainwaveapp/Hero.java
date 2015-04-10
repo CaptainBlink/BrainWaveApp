@@ -54,20 +54,18 @@ public class Hero extends Activity {
 
     }
 
-    public void draw(Canvas canvas){
+    public void draw(Canvas canvas) {
 
-        if (!death)
-        {
-            canvas.drawBitmap(bitmap, x - bitmap.getWidth()/2, y - bitmap.getHeight()/2, null);
+        if (!death) {
+            canvas.drawBitmap(bitmap, x - bitmap.getWidth() / 2, y - bitmap.getHeight() / 2, null);
+        } else {
+            int index = (int) (animTime / totalAnimTime * numFrames);
+            if (index < numFrames)
+                canvas.drawBitmap(Booms.get(index), x - bitmap.getWidth() / 2, y - bitmap.getHeight() / 2, null);
         }
-        else
-        {
-            int index = (int) (animTime/totalAnimTime*numFrames);
-            if (index<numFrames)
-                canvas.drawBitmap(Booms.get(index), x - bitmap.getWidth()/2, y - bitmap.getHeight()/2, null);
-        }
-
     }
+
+
 
     public void update(float dt){
 

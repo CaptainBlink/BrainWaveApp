@@ -1,6 +1,7 @@
 package com.groupx.brainwaveapp;
 
 import android.app.Activity;
+import android.view.SurfaceView;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
@@ -25,6 +26,10 @@ public class ThinkGearAcitivty extends ActionBarActivity {
     TGDevice tgDevice;
     BluetoothAdapter btAdapter;
     final boolean rawEnabled = true;
+    Hero hero;
+    boolean blink;
+
+    GamePanel gamePanel;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -71,8 +76,10 @@ public class ThinkGearAcitivty extends ActionBarActivity {
                 case TGDevice.MSG_POOR_SIGNAL:
                     Log.v("HelloEEG", "PoorSignal: " + msg.arg1);
                 case TGDevice.MSG_ATTENTION:
-
                     Log.v("HelloEEG", "Attention: " + msg.arg1);
+
+
+
                     break;
                 case TGDevice.MSG_BLINK:
                     Log.v("HelloEEG", "Blink:" +msg.arg1);
@@ -113,21 +120,12 @@ public class ThinkGearAcitivty extends ActionBarActivity {
 
 
 
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> origin/master
         public void doStuff(View view){
             if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
                 tgDevice.connect(rawEnabled);
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 
     public void onDestroy(){
         super.onDestroy();
