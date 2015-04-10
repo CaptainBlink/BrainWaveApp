@@ -32,9 +32,7 @@ public class Game extends Activity {
     final static int UPDATE_SCORE = 0;
     final static int DEATH = 1;
     final static int LOSE = 2;
-    TGDevice tgDevice;
-    BluetoothAdapter btAdapter;
-    final boolean rawEnabled = true;
+
 
     View pauseButton;
     View PauseMenu;
@@ -49,11 +47,20 @@ public class Game extends Activity {
     TextView txt;
     int get_coins = 0;
     int score = 0;
+    Hero hero;
+
+    TGDevice tgDevice;
+    BluetoothAdapter btAdapter;
 
     final Handler handler = new Handler(){
 
         public void handleMessage(Message msg){
 
+
+
+            if(msg.what == TGDevice.MSG_ATTENTION){
+
+            }
             if (msg.what == UPDATE_SCORE){
                 i_get_coin();
             }
@@ -74,6 +81,8 @@ public class Game extends Activity {
             if (msg.what == LOSE){
                 i_lose();
             }
+
+
 
             super.handleMessage(msg);
         }
@@ -128,6 +137,8 @@ public class Game extends Activity {
 
         }
     };
+
+
 
     View.OnClickListener To_Main_Menu = new View.OnClickListener() {
         @Override
@@ -213,6 +224,7 @@ public class Game extends Activity {
         GameMusic.setVolume(0.3f,0.3f);
         GameMusic.start();
 
+
     }
 
 
@@ -240,6 +252,7 @@ public class Game extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.

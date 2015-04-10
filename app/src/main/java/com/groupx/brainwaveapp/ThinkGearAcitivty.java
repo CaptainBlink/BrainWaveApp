@@ -6,7 +6,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import com.neurosky.thinkgear.TGDevice;
 import com.neurosky.thinkgear.*;
@@ -20,16 +19,21 @@ import android.view.View.OnClickListener;
 /**
  * Created by Vasil on 8.4.2015 г..
  */
-public class ThinkGearAcitivty extends ActionBarActivity {
+public class ThinkGearAcitivty extends Activity {
 
 
     TGDevice tgDevice;
     BluetoothAdapter btAdapter;
     final boolean rawEnabled = true;
     Hero hero;
+<<<<<<< HEAD
     boolean blink;
 
     GamePanel gamePanel;
+=======
+    GamePanel gamePanel;
+
+>>>>>>> origin/master
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,7 @@ public class ThinkGearAcitivty extends ActionBarActivity {
     private final Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            //gamePanel.setMove(msg);
             switch (msg.what) {
                 case TGDevice.MSG_STATE_CHANGE:
                     switch (msg.arg1) {
@@ -79,7 +84,10 @@ public class ThinkGearAcitivty extends ActionBarActivity {
                     Log.v("HelloEEG", "Attention: " + msg.arg1);
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
                     break;
                 case TGDevice.MSG_BLINK:
                     Log.v("HelloEEG", "Blink:" +msg.arg1);
@@ -120,7 +128,10 @@ public class ThinkGearAcitivty extends ActionBarActivity {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
         public void doStuff(View view){
             if (tgDevice.getState() !=TGDevice.STATE_CONNECTING && tgDevice.getState() != TGDevice.STATE_CONNECTED)
                 tgDevice.connect(rawEnabled);

@@ -8,10 +8,10 @@
         android:layout_width="450px"
         android:layout_height="150px"
         android:id="@+id/btn_start"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btn_options"
         android:layout_alignLeft="@+id/btn_options"
         android:layout_alignStart="@+id/btn_options"
-        android:layout_marginTop="40dp">
+        android:layout_marginBottom="33dp">
 
         <ImageView
             android:layout_width="fill_parent"
@@ -35,7 +35,7 @@
     <RelativeLayout
         android:layout_width="450px"
         android:layout_height="150px"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="29dp"
         android:id="@+id/btn_quit"
         android:layout_below="@+id/btn_options"
         android:layout_centerHorizontal="true">

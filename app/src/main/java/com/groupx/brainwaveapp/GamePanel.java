@@ -1,5 +1,6 @@
 package com.groupx.brainwaveapp;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -35,6 +36,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     public int Screenheight;
     public Game game;
 
+
+
     public GamePanel(Context context, Game game, int ScreeWidth, int Screenheight) {
         super(context);
         getHolder().addCallback(this);
@@ -67,6 +70,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     }*/
 
 public boolean onTouchEvent (MotionEvent event) {
+<<<<<<< HEAD
         if (event.getAction() == MotionEvent.ACTION_DOWN) ;
         hero.up = true;
 
@@ -92,6 +96,15 @@ public boolean onTouchEvent (MotionEvent event) {
         hero.up=true;
     }
     hero.up=false;
+=======
+    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        hero.up = true;
+    }
+    if (event.getAction() == MotionEvent.ACTION_UP) {
+        hero.up = false;
+    }
+    return true;
+>>>>>>> origin/master
 }
 */
 
@@ -99,12 +112,14 @@ public boolean onTouchEvent (MotionEvent event) {
         CharacterSpeed = ScreeWidth/3.f;}
     */
 
-   /* public boolean onTouchEvent(Message event) {
-        String stuff = ""+event.arg1;
-        if (stuff == "MSG_BLINK"){
-            hero.up = true;
-        }
-*/
+
+public void setMove(Message msg){
+    if (msg.arg1 == TGDevice.MSG_BLINK) {
+        hero.up = true;
+
+    }
+
+}
 
 
 
@@ -126,6 +141,8 @@ public boolean onTouchEvent (MotionEvent event) {
         hero.update(dt);
         if (!hero.death)
         {
+            Message msg_blink = game.handler.obtainMessage();
+            msg_blink.what = 10;
             background.update(dt);
             coin.update(dt);
             BM.update(dt);
@@ -184,4 +201,10 @@ public boolean onTouchEvent (MotionEvent event) {
         }
 
     }
+
+
+
+
+
+
 }

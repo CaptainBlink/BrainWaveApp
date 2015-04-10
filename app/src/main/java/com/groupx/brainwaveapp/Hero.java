@@ -66,7 +66,10 @@ public class Hero extends Activity {
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     public void update(float dt){
 
         if (death){
